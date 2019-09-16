@@ -1,6 +1,6 @@
 ﻿namespace ShoppingCart
 {
-    public class Product
+    public class Product : IProduct
     {
         public Product(string name, double unitPrice)
         {
