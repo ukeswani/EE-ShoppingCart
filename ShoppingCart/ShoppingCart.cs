@@ -4,24 +4,23 @@ using System.Linq;
 
 namespace ShoppingCart
 {
-    public class ShoppingCart
+    public class ShoppingCart : IShoppingCart
     {
-        private readonly List<ProductItem> _productItems;
+        private readonly List<IProductItem> _productItems;
+        private double _totalPrice;
 
         public ShoppingCart()
         {
-            _productItems = new List<ProductItem>();
+            _productItems = new List<IProductItem>();
         }
 
-        public void AddProductItem(ProductItem productItem)
+        public void AddProductItem(IProductItem productItem)
         {
             _productItems.Add(productItem);
         }
 
-        public double TotalPrice()
-        {
-            var totalPrice = _productItems.Select(pi => pi.UnitPrice * pi.Quantity).Sum();
-            return Math.Round(totalPrice, 2);
-        }
+        public IEnumerable<IProductItem> ProductItems => _productItems;
+
+        public double TotalPrice => Math.Round(_productItems.Select(pi => pi.Price).Sum(), 2);
     }
 }

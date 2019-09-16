@@ -42,6 +42,9 @@
   <ItemGroup>
     <Compile Include="IProduct.cs" />
     <Compile Include="IProductItem.cs" />
+    <Compile Include="IShoppingCart.cs" />
+    <Compile Include="IShoppingCartReader.cs" />
+    <Compile Include="IShoppingCartWriter.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
