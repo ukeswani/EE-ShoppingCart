@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using ShoppingCart;
+using System;
 
 namespace ShoppingCartTests
 {
@@ -40,6 +41,22 @@ namespace ShoppingCartTests
 
             // Assert
             Assert.That(product.UnitPrice, Is.EqualTo(expectedUnitPrice));
+        }
+        
+        [TestCase("")]
+        [TestCase(" ")]
+        [TestCase(null)]
+        public void GivenNoObject_WhenCreatingProductWithInvalidName_ThenThrowsException(string invalidName)
+        {
+            // Arrange, Act, Assert
+            Assert.Throws<ArgumentException>(() => CreateProduct(invalidName));
+        }
+
+        [TestCase(-1.0)]
+        public void GivenNoObject_WhenCreatingProductWithInvalidUnitPrice_ThenThrowsException(double invalidUnitPrice)
+        {
+            // Arrange, Act, Assert
+            Assert.Throws<ArgumentException>(() => CreateProduct(unitPrice: invalidUnitPrice));
         }
 
         private IProduct CreateProduct(string name = "some product", double unitPrice = 0.00)
