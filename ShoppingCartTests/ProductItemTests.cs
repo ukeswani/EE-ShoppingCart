@@ -71,6 +71,21 @@ namespace ShoppingCartTests
             Assert.Throws<ArgumentException>(() => CreateProductItem(injectedQuantity: 0));
         }
 
+        [Test]
+        public void GivenProductItem_WhenGetPrice_ThenReturnsQuantityTimesUnitPrice()
+        {
+            // Arrange
+            const uint expectedProductUnitPrice = 70;
+            const uint expectedQuantity = 10;
+            IProductItem productItem = CreateProductItem(injectedProductUnitPrice: expectedProductUnitPrice, injectedQuantity: expectedQuantity);
+
+            //  Act
+            var productItemPrice = productItem.Price;
+
+            // Assert
+            Assert.That(productItemPrice, Is.EqualTo(expectedQuantity * expectedProductUnitPrice));
+        }
+
         private IProductItem CreateProductItem(
                                 string injectedProductName = "Axe Deo",
                                 double injectedProductUnitPrice = 89.99,

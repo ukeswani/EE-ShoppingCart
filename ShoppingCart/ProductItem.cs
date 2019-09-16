@@ -16,15 +16,19 @@ namespace ShoppingCart
             }
 
             Quantity = quantity;
+
+            
+            UnitPrice = _product.UnitPrice;
+            Name = _product.Name;
+            Price = Quantity * _product.UnitPrice;
         }
 
-        public double UnitPrice => _product.UnitPrice;
+        public double UnitPrice { get; }
 
-        public uint Quantity
-        {
-            get;
-        }
+        public uint Quantity { get; }
 
-        public string Name => _product.Name;
+        public double Price { get; }
+
+        public string Name { get; }
     }
 }

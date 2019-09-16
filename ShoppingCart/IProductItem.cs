@@ -7,5 +7,8 @@
         double UnitPrice { get; }
 
         uint Quantity { get; }
+
+        double Price { get; }
+
     }
 }
