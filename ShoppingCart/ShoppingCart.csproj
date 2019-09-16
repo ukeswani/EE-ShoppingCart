@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IProduct.cs" />
+    <Compile Include="IProductItem.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

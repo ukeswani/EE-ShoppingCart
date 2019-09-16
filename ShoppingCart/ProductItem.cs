@@ -1,12 +1,20 @@
-﻿namespace ShoppingCart
-{
-    public class ProductItem
-    {
-        private readonly Product _product;
+﻿using System;
 
-        public ProductItem(Product product, uint quantity)
+namespace ShoppingCart
+{
+    public class ProductItem : IProductItem
+    {
+        private readonly IProduct _product;
+
+        public ProductItem(IProduct product, uint quantity)
         {
-            _product = product;
+            _product = product ?? throw new ArgumentNullException(nameof(product));
+
+            if (quantity == 0)
+            {
+                throw new ArgumentException($"{nameof(quantity)} must be more than 0");
+            }
+
             Quantity = quantity;
         }
 
@@ -16,5 +24,7 @@
         {
             get;
         }
+
+        public string Name => _product.Name;
     }
 }
