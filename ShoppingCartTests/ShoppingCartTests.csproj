@@ -59,11 +59,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddableProductItemTests.cs" />
+    <Compile Include="HandleProductsWithAssociatedOfferShoppingCartDecoratorTests.cs" />
+    <Compile Include="TotalPriceAdditionalProcessingShoppingCartDecoratorTests.cs" />
+    <Compile Include="ConsolidateProductItemsShoppingCartTests.cs" />
     <Compile Include="ProductItemTests.cs" />
+    <Compile Include="ProductWithAssociatedOfferTests.cs" />
     <Compile Include="ProductTests.cs" />
+    <Compile Include="RunningProductItemsCountShoppingCartTests.cs" />
     <Compile Include="ShoppingCartTests.cs" />
     <Compile Include="Story1Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Story2Tests.cs" />
+    <Compile Include="Story3Tests.cs" />
+    <Compile Include="Story4Tests.cs" />
+    <Compile Include="Story6Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
